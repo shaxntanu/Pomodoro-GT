@@ -28,9 +28,6 @@ export const defaultStatistics: Statistics = {
   totalFocusTime: 0,
   totalSessions: 0,
   completedTasks: 0,
-  currentStreak: 0,
-  longestStreak: 0,
-  lastSessionDate: null,
   dailyStats: {},
 }
 

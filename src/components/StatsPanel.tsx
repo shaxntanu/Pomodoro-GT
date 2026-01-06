@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Clock, Target, CheckCircle, Flame, Trophy } from 'lucide-react'
+import { X, Clock, Target, CheckCircle } from 'lucide-react'
 import { useStore } from '@/store/useStore'
 
 const panelVariants = {
@@ -103,21 +103,6 @@ export function StatsPanel() {
               <div className="grid grid-cols-2 gap-2 sm:gap-3">
                 <StatCard icon={<Clock size={18} />} value={formatTime(statistics.totalFocusTime)} label="Total Focus" large index={6} />
                 <StatCard icon={<Target size={18} />} value={statistics.totalSessions.toString()} label="Sessions" large index={7} />
-              </div>
-            </div>
-
-            {/* Streaks */}
-            <div>
-              <h4 className="text-gray-400 text-xs sm:text-sm mb-2 sm:mb-3">Streaks</h4>
-              <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                <StatCard
-                  icon={<Flame size={18} />}
-                  value={`${statistics.currentStreak}d`}
-                  label="Current"
-                  highlight={statistics.currentStreak > 0}
-                  index={8}
-                />
-                <StatCard icon={<Trophy size={18} />} value={`${statistics.longestStreak}d`} label="Best" index={9} />
               </div>
             </div>
           </div>

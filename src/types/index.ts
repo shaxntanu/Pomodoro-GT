@@ -26,9 +26,6 @@ export interface Statistics {
   totalFocusTime: number
   totalSessions: number
   completedTasks: number
-  currentStreak: number
-  longestStreak: number
-  lastSessionDate: string | null
   dailyStats: Record<string, DailyStats>
 }
 

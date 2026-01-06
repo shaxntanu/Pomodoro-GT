@@ -203,22 +203,9 @@ export const useStore = create<TimerState>((set, get) => ({
       const newMode = isLongBreak ? 'longBreak' : 'shortBreak'
       const newTime = isLongBreak ? timerSettings.longBreak * 60 : timerSettings.shortBreak * 60
       
-      // Update streak
-      let newStreak = statistics.currentStreak
-      const lastDate = statistics.lastSessionDate
-      if (lastDate !== today) {
-        const yesterday = new Date()
-        yesterday.setDate(yesterday.getDate() - 1)
-        const yesterdayStr = yesterday.toISOString().split('T')[0]
-        newStreak = lastDate === yesterdayStr ? statistics.currentStreak + 1 : 1
-      }
-      
       get().updateStatistics({
         totalFocusTime: statistics.totalFocusTime + timerSettings.focusTime,
         totalSessions: statistics.totalSessions + 1,
-        currentStreak: newStreak,
-        longestStreak: Math.max(statistics.longestStreak, newStreak),
-        lastSessionDate: today,
         dailyStats: {
           ...statistics.dailyStats,
           [today]: {
